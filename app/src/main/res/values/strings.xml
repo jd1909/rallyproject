@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RallyProject</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="choose_city_rally">Choose your city rally</string>
+    <string name="confirm_rally">confirm rally and start</string>
+    <string name="title_activity_question">QuestionActivity</string>
+    <string name="questions">Answer the question to score points!</string>
+    <string name="map_description">map</string>
+
+</resources>
