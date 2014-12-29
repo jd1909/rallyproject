@@ -9,7 +9,9 @@ import com.google.android.gms.maps.model.*;
 
 
 public class QuestionActivity extends ActionBarActivity {
-    private Googlemap map;
+    private GoogleMap map;
+    static final LatLng LUXEMBOURG = new LatLng(49.6117,6.1300);
+    static final LatLng CLAIREFONTAINE = new LatLng(49.6098,6.1325);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,20 +19,18 @@ public class QuestionActivity extends ActionBarActivity {
         setContentView(R.layout.activity_question);
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
                 .getMap();
-        Marker luxembourg = map.addMarker(new MarkerOptions().position(new LatLng(49.6117,6.1300))
+        Marker luxembourg = map.addMarker(new MarkerOptions().position(LUXEMBOURG)
                 .title("Luxembourg"));
-        Marker kirchberg = map.addMarker(new MarkerOptions()
-                .position(new LatLng(49.6262, 6.1599))
-                .title("Kirchberg")
-                .snippet("Kirchberg is cool")
-                .icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.ic_launcher)));
+        Marker claire = map.addMarker(new MarkerOptions()
+                .position(CLAIREFONTAINE)
+                .title("Clairefontaine")
+                .snippet("How much does the five course menu cost?"));
 
         // Move the camera instantly to hamburg with a zoom of 15.
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(LUXEMBOURG, 15));
 
         // Zoom in, animating the camera.
-        map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+        map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
     }
 
 
