@@ -17,22 +17,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DatabaseOpenHelper myDbHelper = new DatabaseOpenHelper(this);
 
-        try {
-            // check if database exists in app path, if not copy it from assets
-            myDbHelper.create();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
-
-        try {
-            // open the database
-            myDbHelper.open();
-            myDbHelper.getWritableDatabase();
-        } catch (SQLException sqle) {
-            throw sqle;
-        }
     }
 
     @Override

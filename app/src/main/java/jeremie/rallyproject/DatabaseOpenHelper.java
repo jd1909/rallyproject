@@ -29,7 +29,7 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
     private static final String COLUMN_Longitude_1 = "Longitude";
 
     //Simple Questions
-    private static final String TABLE_NAME_2 = "SimpleQuestions";
+    private static final String TABLE_NAME_2 = "MultiQuestions";
     private static final String COLUMN_ID_2 = "_id";
     private static final String COLUMN_Question_2 = "Question";
     private static final String COLUMN_Answer_A_2 = "Answer_A";
@@ -76,7 +76,7 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
             checkDB = SQLiteDatabase.openDatabase(myPath, null,
                     SQLiteDatabase.OPEN_READWRITE);
         } catch (SQLiteException e) {
-            // database does't exist yet.
+            // database doesn't exist yet.
         }
 
         if (checkDB != null) {
@@ -122,8 +122,8 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
             database.close();
         super.close();
     }
-    // retrieves a particular user
-    public Cursor SimpleQuestion(long rowId) throws SQLException {
+    // retrieves a particular question
+    public Cursor getSimpleQuestion(long rowId) throws SQLException {
         Cursor mCursor = database.query(true, TABLE_NAME_1, new String[]{
                         COLUMN_ID_1, COLUMN_Question_1, COLUMN_Answer_1, COLUMN_Latitude_1, COLUMN_Longitude_1},
                 COLUMN_ID_1 + " = " + rowId, null, null, null, null, null);
@@ -133,7 +133,7 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
         return mCursor;
     }
 
-    public Cursor MultiQuestion(long rowId) throws SQLException {
+    public Cursor getMultiQuestion(long rowId) throws SQLException {
         Cursor mCursor = database.query(true, TABLE_NAME_2, new String[] {
                 COLUMN_ID_2, COLUMN_Question_2, COLUMN_Answer_A_2, COLUMN_Answer_B_2,COLUMN_Answer_C_2, COLUMN_Answer_2, COLUMN_Latitude_2, COLUMN_Longitude_2 },
                 COLUMN_ID_2 + " = " + rowId, null, null, null, null, null);
