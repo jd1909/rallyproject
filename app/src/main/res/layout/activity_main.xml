@@ -22,9 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/confirm_rally"
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:layout_alignTop="@+id/spinner"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp" />
+        android:layout_marginTop="86dp"
+        android:onClick="startRally"/>
 
 </RelativeLayout>
