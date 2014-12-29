@@ -123,12 +123,13 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
     }
     // retrieves a particular user
     public Cursor SimpleQuestion(long rowId) throws SQLException {
-        Cursor mCursor = database.query(true, TABLE_NAME_1, new String[] {
-                COLUMN_ID_1, COLUMN_Question_1, COLUMN_Answer_1, COLUMN_Latitude_1, COLUMN_Longitude_1 },
+        Cursor mCursor = database.query(true, TABLE_NAME_1, new String[]{
+                        COLUMN_ID_1, COLUMN_Question_1, COLUMN_Answer_1, COLUMN_Latitude_1, COLUMN_Longitude_1},
                 COLUMN_ID_1 + " = " + rowId, null, null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
+    }
     public Cursor MultiQuestion(long rowId) throws SQLException {
         Cursor mCursor = database.query(true, TABLE_NAME_2, new String[] {
                 COLUMN_ID_2, COLUMN_Question_2, COLUMN_Answer_A_2, COLUMN_Answer_B_2,COLUMN_Answer_C_2, COLUMN_Answer_2, COLUMN_Latitude_1, COLUMN_Longitude_1 },
@@ -137,6 +138,16 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
             mCursor.moveToFirst();
         }
         return mCursor;
+    }
+    public void onCreate(SQLiteDatabase arg0) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // TODO Auto-generated method stub
+
     }
 
 }
