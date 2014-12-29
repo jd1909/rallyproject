@@ -1,6 +1,7 @@
 package jeremie.rallyproject;
 
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +27,7 @@ public class QuestionActivity extends ActionBarActivity {
                 .title("Clairefontaine")
                 .snippet("How much does the five course menu cost?"));
 
-        // Move the camera instantly to hamburg with a zoom of 15.
+        // Move the camera instantly to luxembourg with a zoom of 15.
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(LUXEMBOURG, 15));
 
         // Zoom in, animating the camera.
@@ -55,4 +56,10 @@ public class QuestionActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void confirm(View view){
+
+
+    }
+
 }
