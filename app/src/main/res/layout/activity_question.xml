@@ -48,7 +48,8 @@
         android:id="@+id/button2"
         android:layout_alignTop="@+id/button"
         android:layout_toLeftOf="@+id/editText"
-        android:layout_toStartOf="@+id/editText" />
+        android:layout_toStartOf="@+id/editText"
+        android:onClick="confirm" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
