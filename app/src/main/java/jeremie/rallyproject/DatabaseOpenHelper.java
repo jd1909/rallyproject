@@ -129,7 +129,9 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
+        return mCursor;
     }
+
     public Cursor MultiQuestion(long rowId) throws SQLException {
         Cursor mCursor = database.query(true, TABLE_NAME_2, new String[] {
                 COLUMN_ID_2, COLUMN_Question_2, COLUMN_Answer_A_2, COLUMN_Answer_B_2,COLUMN_Answer_C_2, COLUMN_Answer_2, COLUMN_Latitude_1, COLUMN_Longitude_1 },
