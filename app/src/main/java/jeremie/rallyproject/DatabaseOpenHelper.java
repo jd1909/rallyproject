@@ -18,7 +18,7 @@ import java.io.OutputStream;
  */
 class DatabaseOpenHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Rally";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     //Simple Questions
     private static final String TABLE_NAME_1 = "SimpleQuestions";
@@ -46,7 +46,7 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
     private static String DATABASE_PATH = "/data/data/jeremie.rallyproject/databases/";
 
     public DatabaseOpenHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 2);
         this.myContext = context;
 
     }
