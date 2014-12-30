@@ -121,10 +121,8 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
         super.close();
     }
 
-<<<<<<< HEAD
     // retrieves a particular question
-=======
->>>>>>> origin/master
+
 
     public Cursor getSimpleQuestion(long rowId) throws SQLException {
         Cursor mCursor = database.query(true, TABLE_NAME_1, new String[]{
