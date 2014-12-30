@@ -41,15 +41,13 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase database;
 
-    private final Context context;
+    private final Context myContext;
     // database path
-    private static String DATABASE_PATH;
+    private static String DATABASE_PATH = "/data/data/jeremie.rallyproject/databases/";
 
-    public DatabaseOpenHelper(Context ctx) {
-        super(ctx, DATABASE_NAME, null, DATABASE_VERSION);
-        this.context = ctx;
-        DATABASE_PATH = context.getFilesDir().getParentFile().getPath()
-                + "/databases/";
+    public DatabaseOpenHelper(Context context) {
+        super(context, DATABASE_NAME, null, 1);
+        this.myContext = context;
 
     }
 
@@ -87,7 +85,7 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
     private void copyDataBase() throws IOException {
 
         // Open your local db as the input stream
-        InputStream myInput = context.getAssets().open(DATABASE_NAME);
+        InputStream myInput = myContext.getAssets().open(DATABASE_NAME);
 
         // Path to the just created empty db
         String outFileName = DATABASE_PATH + DATABASE_NAME;
