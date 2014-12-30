@@ -38,6 +38,7 @@ public class QuestionActivity extends ActionBarActivity {
             throw new Error("Unable to create database");
         }
         myDbHelper.close();
+
         try {
             // open the database
             myDbHelper.open();
