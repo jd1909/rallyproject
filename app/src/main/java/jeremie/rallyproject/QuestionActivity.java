@@ -1,5 +1,6 @@
 package jeremie.rallyproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.SQLException;
 import android.support.v7.app.ActionBarActivity;
@@ -30,14 +31,13 @@ public class QuestionActivity extends ActionBarActivity {
         setContentView(R.layout.activity_question);
         // Set up the database
         DatabaseOpenHelper myDbHelper = new DatabaseOpenHelper(this);
-
         try {
             // check if database exists in app path, if not copy it from assets
             myDbHelper.create();
         } catch (IOException ioe) {
             throw new Error("Unable to create database");
         }
-
+        myDbHelper.close();
         try {
             // open the database
             myDbHelper.open();
@@ -45,6 +45,7 @@ public class QuestionActivity extends ActionBarActivity {
         } catch (SQLException sqle) {
             throw sqle;
         }
+
 
         Cursor questionCursor = myDbHelper.getSimpleQuestion(1);
         String questionString = questionCursor.getString(1);

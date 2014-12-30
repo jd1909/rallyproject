@@ -18,7 +18,7 @@ import java.io.OutputStream;
  */
 class DatabaseOpenHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Rally";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     //Simple Questions
     private static final String TABLE_NAME_1 = "SimpleQuestions";
@@ -46,7 +46,7 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
     private static String DATABASE_PATH = "/data/data/jeremie.rallyproject/databases/";
 
     public DatabaseOpenHelper(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 1);
         this.myContext = context;
 
     }
@@ -106,25 +106,21 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
         myInput.close();
 
     }
-    /** open the database */
+
     public void open() throws SQLException {
         String myPath = DATABASE_PATH + DATABASE_NAME;
         database = SQLiteDatabase.openDatabase(myPath, null,
                 SQLiteDatabase.OPEN_READWRITE);
     }
 
-    /** close the database */
+
     @Override
     public synchronized void close() {
         if (database != null)
             database.close();
         super.close();
     }
-<<<<<<< HEAD
-    // retrieves a particular question
-=======
-    // retrieves a particular user
->>>>>>> origin/master
+
     public Cursor getSimpleQuestion(long rowId) throws SQLException {
         Cursor mCursor = database.query(true, TABLE_NAME_1, new String[]{
                         COLUMN_ID_1, COLUMN_Question_1, COLUMN_Answer_1, COLUMN_Latitude_1, COLUMN_Longitude_1},
@@ -149,6 +145,9 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
         // TODO Auto-generated method stub
 
     }
+
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
