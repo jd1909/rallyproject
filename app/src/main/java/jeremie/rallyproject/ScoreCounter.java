@@ -16,7 +16,7 @@ public class ScoreCounter{
         count--;
     }
     public int totalScore(){
-        return count;
+        return this.count;
     }
     public ScoreCounter(){
 

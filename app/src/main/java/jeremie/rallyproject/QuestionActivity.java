@@ -20,6 +20,7 @@ import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
 import java.io.IOException;
+import java.util.Random;
 
 
 public class QuestionActivity extends ActionBarActivity {
@@ -35,6 +36,8 @@ public class QuestionActivity extends ActionBarActivity {
     ScoreCounter count = new ScoreCounter();
     int input;
     @Override
+ //   Random rand = new Random();
+ //   int Random = rand.nextInt(1) +1;
 
 
 

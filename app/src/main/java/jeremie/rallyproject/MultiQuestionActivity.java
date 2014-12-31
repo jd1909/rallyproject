@@ -34,6 +34,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
         setContentView(R.layout.activity_multi_question);
         Intent intent = getIntent();
         Score= intent.getIntExtra("Score",-1);
+        count.setCount(Score);
         txtMultiQuestion.setText(MQ1.getQuestion());
         Answer_A.setText(MQ1.getAnswer_A());
         Answer_B.setText(MQ1.getAnswer_B());
@@ -67,21 +68,27 @@ public class MultiQuestionActivity extends ActionBarActivity {
         if(MQ1.getAnswer().equals(Answer_A.getText().toString())){
             count.increment();
         }
-        //Intent intent = new Intent(this, Sudoku.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, SudokuActivity.class);
+        int score = count.totalScore();
+        intent.putExtra("Score",score);
+        startActivity(intent);
     }
     public void Answer_B(View view){
         if(MQ1.getAnswer().equals(Answer_B.getText().toString())){
             count.increment();
         }
-        //Intent intent = new Intent(this, Sudoku.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, SudokuActivity.class);
+        int score = count.totalScore();
+        intent.putExtra("Score",score);
+        startActivity(intent);
     }
     public void Answer_C(View view){
         if(MQ1.getAnswer().equals(Answer_C.getText().toString())){
             count.increment();
         }
-        //Intent intent = new Intent(this, Sudoku.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, SudokuActivity.class);
+        int score = count.totalScore();
+        intent.putExtra("Score",score);
+        startActivity(intent);
     }
 }
