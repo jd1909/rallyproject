@@ -40,6 +40,7 @@ public class QuestionActivity extends ActionBarActivity {
     private ScoreCounter count = new ScoreCounter();
     private List<SimpleQuestions> questions = new ArrayList<>();
     private Marker myLocation;
+    private boolean verified = false;
 
 
     //   Random rand = new Random();
@@ -179,13 +180,14 @@ popupWindow.showAsDropDown(findViewById(R.id.textView2), 50, -30);
             LatLng newLoc = new LatLng(location.getLatitude(), location.getLongitude());
             myLocation.setPosition(newLoc);
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(newLoc, 16.0f));
-            if (verifyLocation()){
+            if (!verified && verifyLocation()){
                 questions.add(SQ1);
                 questions.add(SQ2);
                 random = rn.nextInt(questions.size());
                 SQR = questions.get(random);
                 answer.setEnabled(true);
                 txtQuestion.setText(SQR.getQuestion());
+                verified = true;
             }
         }
     };

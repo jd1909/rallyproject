@@ -44,6 +44,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
     private List<MultiQuestions> questions = new ArrayList<>();
     static final LatLng LUXEMBOURG = new LatLng(49.6117, 6.1300);
     private Marker myLocation;
+    private boolean verified = false;
 
 
     @Override
@@ -161,11 +162,10 @@ public class MultiQuestionActivity extends ActionBarActivity {
             LatLng newLoc = new LatLng(location.getLatitude(), location.getLongitude());
             myLocation.setPosition(newLoc);
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(newLoc, 16.0f));
-            if (verifyLocation()){
+            if (!verified && verifyLocation()){
                 questions.add(MQ1);
                 questions.add(MQ2);
                 questions.add(MQ3);
-                random = rn.nextInt(questions.size());
                 random = rn.nextInt(questions.size());
                 MQR = questions.get(random);
                 Answer_A.setEnabled(true);
@@ -175,7 +175,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
                 Answer_B.setText(MQR.getAnswer_B());
                 Answer_C.setText(MQR.getAnswer_C());
                 txtMultiQuestion.setText(MQR.getQuestion());
-
+                verified = true;
 
             }
         }
