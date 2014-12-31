@@ -14,15 +14,15 @@ import android.widget.Toast;
 public class MysteryActivity extends ActionBarActivity {
     private MysteryQuestion mystery = new MysteryQuestion("Take off my skin. I won't cry, but you will! What am I?","An Onion");
     private ScoreCounter count;
-    private TextView txtRiddle = (TextView) findViewById(R.id.textView5);
-    private EditText Edit1 = (EditText) findViewById(R.id.editText2);
-    private EditText Edit2 = (EditText)findViewById(R.id.editText3);
-    private EditText Edit3 = (EditText) findViewById(R.id.editText4);
-    private EditText Edit4 = (EditText)findViewById(R.id.editText5);
-    private EditText Edit5 = (EditText)findViewById(R.id.editText6);
-    private EditText Edit6 = (EditText)findViewById(R.id.editText7);
-    private EditText Edit7 = (EditText)findViewById(R.id.editText8);
-    private EditText Edit8 = (EditText)findViewById(R.id.editText9);
+    private TextView txtRiddle;
+    private EditText Edit1;
+    private EditText Edit2;
+    private EditText Edit3;
+    private EditText Edit4;
+    private EditText Edit5;
+    private EditText Edit6;
+    private EditText Edit7;
+    private EditText Edit8;
     private int Score;
     private int tries =3;
     private String si;
@@ -30,6 +30,16 @@ public class MysteryActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mystery);
+
+        txtRiddle = (TextView) findViewById(R.id.textView5);
+        Edit1 = (EditText) findViewById(R.id.editText2);
+        Edit2 = (EditText)findViewById(R.id.editText3);
+        Edit3 = (EditText) findViewById(R.id.editText4);
+        Edit4 = (EditText)findViewById(R.id.editText5);
+        Edit5 = (EditText)findViewById(R.id.editText6);
+        Edit6 = (EditText)findViewById(R.id.editText7);
+        Edit7 = (EditText)findViewById(R.id.editText8);
+        Edit8 = (EditText)findViewById(R.id.editText9);
         txtRiddle.setText(mystery.getRiddle());
         Edit3.setText("_");
         Intent intent = getIntent();

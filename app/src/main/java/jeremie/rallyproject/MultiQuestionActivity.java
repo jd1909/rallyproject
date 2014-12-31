@@ -25,11 +25,10 @@ public class MultiQuestionActivity extends ActionBarActivity {
             , (float)49.610283, (float)6.130363,"Paul Helminger", "Lydie Polfer", "Xavier Bettel");
     private MultiQuestions MQ3 = new MultiQuestions(3,"Who is burried in the cathedral?", "John the Blind of Luxembourg",(float)49.609681 ,(float)6.131582,"Grand-Duc Adolphe",
                                             "Grand-Duchesse Marie Adelaide","John the Blind of Luxembourg");
-    private TextView txtMultiQuestion = (TextView) findViewById(R.id.textView4);
-    private Button Answer_A= (Button)findViewById(R.id.button3);
-    private Button Answer_B=(Button)findViewById(R.id.button4);
-    private Button Answer_C=(Button)findViewById(R.id.button5);
-    private int Score;
+    private TextView txtMultiQuestion;
+    private Button Answer_A;
+    private Button Answer_B;
+    private Button Answer_C;
     private ScoreCounter count;
     private Random rn = new Random();
     public int random;
@@ -41,15 +40,19 @@ public class MultiQuestionActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multi_question);
+        txtMultiQuestion = (TextView) findViewById(R.id.textView4);
+        Answer_A= (Button)findViewById(R.id.button3);
+        Answer_B=(Button)findViewById(R.id.button4);
+        Answer_C=(Button)findViewById(R.id.button5);
         //add multiquestion objects to list.
         questions.add(MQ1);
         questions.add(MQ2);
         questions.add(MQ3);
-        random = rn.nextInt(questions.size()) +1;
+        random = rn.nextInt(questions.size());
         MQR = questions.get(random);
         Intent intent = getIntent();
-        Score= intent.getIntExtra("Score",-1);
-        count.setCount(Score);
+        count = new ScoreCounter();
+        count.setCount(intent.getIntExtra("Score",-1));
         txtMultiQuestion.setText(MQR.getQuestion());
         Answer_A.setText(MQR.getAnswer_A());
         Answer_B.setText(MQR.getAnswer_B());

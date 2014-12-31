@@ -53,7 +53,7 @@ public class QuestionActivity extends ActionBarActivity {
         //add simplequestion objects to list.
         questions.add(SQ1);
         questions.add(SQ2);
-        random = rn.nextInt(questions.size()) +1;
+        random = rn.nextInt(questions.size());
         SQR = questions.get(random);
 
 

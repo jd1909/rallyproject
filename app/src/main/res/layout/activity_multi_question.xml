@@ -14,7 +14,8 @@
         android:id="@+id/button3"
         android:layout_above="@+id/button5"
         android:layout_toLeftOf="@+id/button5"
-        android:layout_toStartOf="@+id/button5" />
+        android:layout_toStartOf="@+id/button5"
+        android:onClick="Answer_A" />
 
     <Button
         android:layout_width="wrap_content"
@@ -24,7 +25,7 @@
         android:layout_above="@+id/button5"
         android:layout_toRightOf="@+id/button5"
         android:layout_toEndOf="@+id/button5"
-        android:onClick="Answer_A" />
+        android:onClick="Answer_B" />
 
     <Button
         android:layout_width="wrap_content"
@@ -33,7 +34,7 @@
         android:id="@+id/button5"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="Answer_B" />
+        android:onClick="Answer_C" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,6 +44,5 @@
         android:layout_marginBottom="31dp"
         android:layout_above="@+id/button3"
         android:layout_toRightOf="@+id/button3"
-        android:layout_toEndOf="@+id/button3"
-        android:onClick="Answer_C" />
+        android:layout_toEndOf="@+id/button3" />
 </RelativeLayout>

@@ -29,16 +29,17 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Question?"
         android:id="@+id/textView3"
-        android:layout_alignBaseline="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignStart="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/editText" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:text="Answer"
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentBottom="false"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/button2" />
 
@@ -48,20 +49,9 @@
         android:layout_height="wrap_content"
         android:text="Confirm"
         android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_toLeftOf="@+id/editText"
-        android:layout_toStartOf="@+id/editText"
-        android:onClick="confirm" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Skip"
-        android:id="@+id/button"
+        android:onClick="Answer"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/editText"
-        android:layout_toEndOf="@+id/editText"
-        android:onClick="Answer" />
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
