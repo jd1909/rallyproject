@@ -56,6 +56,14 @@
             android:name=".MultiQuestionActivity"
             android:label="@string/title_activity_multi_question" >
         </activity>
+        <activity
+            android:name=".Mystery"
+            android:label="@string/title_activity_mystery" >
+        </activity>
+        <activity
+            android:name=".MysteryActivity"
+            android:label="@string/title_activity_mystery" >
+        </activity>
     </application>
 
 </manifest>
