@@ -47,6 +47,8 @@
             android:value="AIzaSyBJZV23d9t2s4jVtYIHZhMzu0-_fJs4Z2I" />
 
         <activity
+            android:name=".SudokuActivity"
+            android:label="@string/title_activity_sudoku" >
             android:name=".MainActivity2"
             android:label="@string/title_activity_main_activity2" >
         </activity>

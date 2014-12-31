@@ -30,8 +30,8 @@ public class QuestionActivity extends ActionBarActivity {
             "95 euros", (float)49.60985, (float)6.132561);
     SimpleQuestions SQ2 = new SimpleQuestions(2, "Its Saturday morning 7 am, you are hungry, where can you go for a burger?",
             "Saumur Crystal Club", (float)49.604201, (float)6.129737);
-    TextView txtQuestion = (TextView) findViewById(R.id.textView3);
-    EditText edtAnswer = (EditText) findViewById(R.id.editText);
+    TextView txtQuestion;
+    EditText edtAnswer;
     ScoreCounter count = new ScoreCounter();
     int input;
     @Override
@@ -50,7 +50,8 @@ public class QuestionActivity extends ActionBarActivity {
         float lat = SQ1.getLatitude();
         float lng = SQ1.getLongitude();
 
-
+        txtQuestion = (TextView) findViewById(R.id.textView3);
+        edtAnswer = (EditText) findViewById(R.id.editText);
         txtQuestion.setText(SQ1.getQuestion());
 
         LatLng location = new LatLng(lat,lng);

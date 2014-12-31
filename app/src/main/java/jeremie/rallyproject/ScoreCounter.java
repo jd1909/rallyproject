@@ -6,6 +6,9 @@ package jeremie.rallyproject;
 public class ScoreCounter{
    // private final String name; //Counter
     private int count = 0;
+    public void setCount(int count){
+        this.count= count;
+    }
     public void increment(){
         count++;
     }
