@@ -33,6 +33,7 @@ public class QuestionActivity extends ActionBarActivity {
     TextView txtQuestion = (TextView) findViewById(R.id.textView3);
     EditText edtAnswer = (EditText) findViewById(R.id.editText);
     ScoreCounter count = new ScoreCounter();
+    int input;
     @Override
 
 
@@ -91,6 +92,7 @@ public class QuestionActivity extends ActionBarActivity {
                     public void onClick(View v) {
                         // TODO Auto-generated method stub
                         popupWindow.dismiss();
+
                     }});
 
                 popupWindow.showAsDropDown(findViewById(R.id.textView2), 50, -30);
@@ -106,6 +108,8 @@ public class QuestionActivity extends ActionBarActivity {
                 count.decrease();
         }
         Intent intent = new Intent(this, MultiQuestionActivity.class);
+        int score = count.totalScore();
+        intent.putExtra("Score",score);
         startActivity(intent);
     }
 
