@@ -1,6 +1,7 @@
 package jeremie.rallyproject;
 
 import android.content.Intent;
+import android.location.Location;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.w3c.dom.Text;
 
@@ -18,7 +26,7 @@ import java.util.Random;
 
 public class MultiQuestionActivity extends ActionBarActivity {
 
-
+    private GoogleMap map;
     private MultiQuestions MQ1 = new MultiQuestions(1, "In the rue des marchés des herbes there are many bars. Which bar has the largest gin and tonic menu?", "Go Ten"
                                             , (float)49.611111, (float)6.13242,"the Palais", "Go Ten", "Urban");
     private MultiQuestions MQ2 = new MultiQuestions(2, "Who is the current mayor of Luxembourg City?", "Lydie Polfer"
@@ -34,6 +42,8 @@ public class MultiQuestionActivity extends ActionBarActivity {
     public int random;
     public MultiQuestions MQR;
     private List<MultiQuestions> questions = new ArrayList<>();
+    static final LatLng LUXEMBOURG = new LatLng(49.6117, 6.1300);
+    private Marker myLocation;
 
 
     @Override
@@ -44,19 +54,36 @@ public class MultiQuestionActivity extends ActionBarActivity {
         Answer_A= (Button)findViewById(R.id.button3);
         Answer_B=(Button)findViewById(R.id.button4);
         Answer_C=(Button)findViewById(R.id.button5);
-        //add multiquestion objects to list.
-        questions.add(MQ1);
-        questions.add(MQ2);
-        questions.add(MQ3);
-        random = rn.nextInt(questions.size());
-        MQR = questions.get(random);
+        Answer_A.setText("");
+        Answer_B.setText("");
+        Answer_C.setText("");
+        txtMultiQuestion.setText("");
+
         Intent intent = getIntent();
         count = new ScoreCounter();
         count.setCount(intent.getIntExtra("Score",-1));
-        txtMultiQuestion.setText(MQR.getQuestion());
-        Answer_A.setText(MQR.getAnswer_A());
-        Answer_B.setText(MQR.getAnswer_B());
-        Answer_C.setText(MQR.getAnswer_C());
+
+        float lat = MQR.getLatitude();
+        float lng = MQR.getLongitude();
+        LatLng location = new LatLng(lat, lng);
+
+        // Set up the google map fragment
+        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+                .getMap();
+        Marker luxembourg = map.addMarker(new MarkerOptions().position(LUXEMBOURG)
+                .title("Luxembourg"));
+        Marker claire = map.addMarker(new MarkerOptions()
+                .position(location)
+                .title("Quest"));
+
+        // Move the camera instantly to luxembourg with a zoom of 15.
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(LUXEMBOURG, 15));
+
+        // Zoom in, animating the camera.
+        map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
+        this.map.setMyLocationEnabled(true);
+        this.myLocation= map.addMarker(new MarkerOptions().position(new LatLng(49.6117, 6.1300)).title("You are here"));
+        this.map.setOnMyLocationChangeListener(this.myLocationChangeListener);
 
     }
 
@@ -109,4 +136,39 @@ public class MultiQuestionActivity extends ActionBarActivity {
         intent.putExtra("Score",score);
         startActivity(intent);
     }
+    public boolean verifyLocation() {
+        LatLng quest = new LatLng(MQR.getLatitude(), MQR.getLongitude());
+        if (myLocation.getPosition().latitude == MQR.getLatitude()&& myLocation.getPosition().longitude == MQR.getLongitude() )
+            return true;
+
+        return false;
+    }
+
+
+
+    private GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
+        @Override
+        public void onMyLocationChange(Location location) {
+            LatLng newLoc = new LatLng(location.getLatitude(), location.getLongitude());
+            myLocation.setPosition(newLoc);
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(newLoc, 16.0f));
+            if (verifyLocation()){
+                questions.add(MQ1);
+                questions.add(MQ2);
+                questions.add(MQ3);
+                random = rn.nextInt(questions.size());
+                random = rn.nextInt(questions.size());
+                MQR = questions.get(random);
+                Answer_A.setEnabled(true);
+                Answer_B.setEnabled(true);
+                Answer_C.setEnabled(true);
+                Answer_A.setText(MQR.getAnswer_A());
+                Answer_B.setText(MQR.getAnswer_B());
+                Answer_C.setText(MQR.getAnswer_C());
+                txtMultiQuestion.setText(MQR.getQuestion());
+
+
+            }
+        }
+    };
 }
