@@ -48,22 +48,7 @@ public class SudokuActivity extends Activity {
         selectedCol = 0;
         selectedRow = 0;
         gridModel = new SudokuGrid();
-        /*gridModel.getGrid()[0][1].setDigit(3);
-        gridModel.getGrid()[0][2].setDigit(5);
-        gridModel.getGrid()[1][1].setDigit(2);
-        gridModel.getGrid()[1][4].setDigit(5);
-        gridModel.getGrid()[1][5].setDigit(4);
-        gridModel.getGrid()[2][2].setDigit(2);
-        gridModel.getGrid()[2][3].setDigit(4);
-        gridModel.getGrid()[2][5].setDigit(5);
-        gridModel.getGrid()[3][0].setDigit(5);
-        gridModel.getGrid()[3][2].setDigit(3);
-        gridModel.getGrid()[3][3].setDigit(2);
-        gridModel.getGrid()[4][0].setDigit(2);
-        gridModel.getGrid()[4][1].setDigit(6);
-        gridModel.getGrid()[4][4].setDigit(1);
-        gridModel.getGrid()[5][3].setDigit(6);
-        gridModel.getGrid()[5][4].setDigit(4);*/
+
         startingNumbers = new int[]{
                 0, 0, 0, 5, 2, 0,
                 3, 2, 0, 0, 6, 0,

@@ -118,7 +118,7 @@ public class MysteryActivity extends ActionBarActivity {
     }
     public void Finish(View view){
         //correct mystery
-        if (mystery.getAnswer().equals(Edit1.getText().toString()+Edit2.getText().toString()+" "
+        if (mystery.getAnswer().equalsIgnoreCase(Edit1.getText().toString()+Edit2.getText().toString()+" "
                 +Edit4.getText().toString()+Edit5.getText().toString()+Edit6.getText().toString()
                 +Edit7.getText().toString()+Edit8.getText().toString())) {
 

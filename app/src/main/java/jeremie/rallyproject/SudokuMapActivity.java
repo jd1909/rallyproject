@@ -9,14 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 
 public class SudokuMapActivity extends ActionBarActivity {
     private GoogleMap map;

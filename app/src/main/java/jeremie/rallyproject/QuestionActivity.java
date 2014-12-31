@@ -1,26 +1,19 @@
 package jeremie.rallyproject;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.SQLException;
 import android.location.Location;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.PopupWindow;
-import android.database.Cursor;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -92,34 +85,6 @@ public class QuestionActivity extends ActionBarActivity {
         this.myLocation= map.addMarker(new MarkerOptions().position(new LatLng(49.6117, 6.1300)).title("You are here"));
         this.map.setOnMyLocationChangeListener(this.myLocationChangeListener);
 
-
-/**
- final Button btnOpenPopup = (Button)findViewById(R.id.button2);
- btnOpenPopup.setOnClickListener(new Button.OnClickListener(){
-
-@Override public void onClick(View arg0) {
-LayoutInflater layoutInflater
-= (LayoutInflater)getBaseContext()
-.getSystemService(LAYOUT_INFLATER_SERVICE);
-View popupView = layoutInflater.inflate(R.layout.activity_popup, null);
-final PopupWindow popupWindow = new PopupWindow(
-popupView,
-ViewGroup.LayoutParams.WRAP_CONTENT,
-ViewGroup.LayoutParams.WRAP_CONTENT);
-
-Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
-btnDismiss.setOnClickListener(new Button.OnClickListener(){
-
-@Override public void onClick(View v) {
-// TODO Auto-generated method stub
-popupWindow.dismiss();
-
-}});
-
-popupWindow.showAsDropDown(findViewById(R.id.textView2), 50, -30);
-
-}});
- */
     }
 
     public void Answer(View view) {
