@@ -21,7 +21,6 @@ import java.util.Random;
 
 public class QuestionActivity extends ActionBarActivity {
     private GoogleMap map;
-    static final LatLng LUXEMBOURG = new LatLng(49.6117, 6.1300);
     private SimpleQuestions SQ1 = new SimpleQuestions(1, " How much does the five course menu cost in the famous restaurant Clairefontaine?",
             "95 euros", (float) 49.60985, (float) 6.132561);
     private SimpleQuestions SQ2 = new SimpleQuestions(2, "Its Saturday morning 7 am, you are hungry, where can you go for a burger?",
@@ -125,10 +124,7 @@ public class QuestionActivity extends ActionBarActivity {
 
     public boolean verifyLocation() {
         LatLng quest = new LatLng(SQR.getLatitude(), SQR.getLongitude());
-        //enable this when app is to be used for real
-        //if (myLocation.getPosition().latitude == SQR.getLatitude()&& myLocation.getPosition().longitude == SQR.getLongitude() )
-        //enable for test purposes
-        if ((myLocation.getPosition().latitude == myLocation.getPosition().latitude) && (myLocation.getPosition().longitude == myLocation.getPosition().longitude ))
+        if ((myLocation.getPosition().latitude == quest.latitude) && (myLocation.getPosition().longitude == quest.longitude ))
             return true;
 
         return false;

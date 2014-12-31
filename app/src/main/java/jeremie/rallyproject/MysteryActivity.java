@@ -27,6 +27,7 @@ public class MysteryActivity extends ActionBarActivity {
     private int tries =3;
     private String si;
     private String totalScore;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

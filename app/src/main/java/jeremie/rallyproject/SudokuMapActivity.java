@@ -79,10 +79,7 @@ public class SudokuMapActivity extends ActionBarActivity {
     }
 
     private boolean verifyLocation() {
-        //enable this when app is to be used for real
-        //if (myLocation.getPosition().latitude == SQR.getLatitude()&& myLocation.getPosition().longitude == SQR.getLongitude() )
-        //enable for test purposes
-        if ((myLocation.getPosition().latitude == myLocation.getPosition().latitude) && (myLocation.getPosition().longitude == myLocation.getPosition().longitude ))
+        if ((myLocation.getPosition().latitude == location.latitude) && (myLocation.getPosition().longitude == location.longitude ))
             return true;
 
         return false;

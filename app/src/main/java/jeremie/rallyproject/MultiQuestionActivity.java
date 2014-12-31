@@ -143,10 +143,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
     }
     public boolean verifyLocation() {
         LatLng quest = new LatLng(MQR.getLatitude(), MQR.getLongitude());
-        //enable this when app is to be used for real
-        //if (myLocation.getPosition().latitude == MQR.getLatitude()&& myLocation.getPosition().longitude == MQR.getLongitude() )
-        //enable for test purposes
-        if (myLocation.getPosition().latitude == myLocation.getPosition().latitude&& myLocation.getPosition().longitude == myLocation.getPosition().longitude )
+        if (myLocation.getPosition().latitude == quest.latitude&& myLocation.getPosition().longitude == quest.longitude )
             return true;
 
         return false;
