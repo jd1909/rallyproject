@@ -63,7 +63,7 @@ public class SudokuActivity extends Activity {
                 3, 2, 0, 0, 6, 0,
                 5, 0, 2, 3, 0, 0,
                 0, 0, 4, 2, 0, 6,
-                0, 6, 0, 0, 1, 4,
+                0, 5, 0, 0, 1, 4,
                 0, 4, 5, 0, 0, 0};
         for(int i=0; i<startingNumbers.length;i++){
             gridModel.getGrid()[getColFromPos(i)][getRowFromPos(i)].setDigit(startingNumbers[i]);
