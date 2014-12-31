@@ -5,8 +5,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MysteryActivity extends ActionBarActivity {
@@ -22,6 +24,8 @@ public class MysteryActivity extends ActionBarActivity {
     EditText Edit7 = (EditText)findViewById(R.id.editText8);
     EditText Edit8 = (EditText)findViewById(R.id.editText9);
     int Score;
+    private int tries =3;
+    private String si;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,50 @@ public class MysteryActivity extends ActionBarActivity {
         Intent intent = getIntent();
         Score = intent.getIntExtra("Score", -1);
         count.setCount(Score);
+        switch (Score){
+            case 3:
+                Edit1.setText("A");
+                Edit1.setEnabled(false);
+                Edit2.setText("");
+                Edit4.setText("");
+                Edit5.setText("n");
+                Edit5.setEnabled(false);
+                Edit6.setText("");
+                Edit7.setText("o");
+                Edit7.setEnabled(false);
+                Edit8.setText("");
+                break;
+            case 2:
+                Edit1.setText("A");
+                Edit1.setEnabled(false);
+                Edit2.setText("");
+                Edit4.setText("");
+                Edit5.setText("");
+                Edit6.setText("");
+                Edit7.setText("o");
+                Edit7.setEnabled(false);
+                Edit8.setText("");
+                break;
+            case 1:
+                Edit1.setText("");
+                Edit2.setText("");
+                Edit4.setText("");
+                Edit5.setText("");
+                Edit6.setText("");
+                Edit7.setText("o");
+                Edit7.setEnabled(false);
+                Edit8.setText("");
+                break;
+            default:
+                Edit1.setText("");
+                Edit2.setText("");
+                Edit4.setText("");
+                Edit5.setText("");
+                Edit6.setText("");
+                Edit7.setText("");
+                Edit8.setText("");
+                break;
+        }
     }
 
 
@@ -55,5 +103,27 @@ public class MysteryActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void Finish(View view){
+        if (mystery.getAnswer().equals(Edit1.getText().toString()+Edit2.getText().toString()+" "
+                +Edit4.getText().toString()+Edit5.getText().toString()+Edit6.getText().toString()
+                +Edit7.getText().toString()+Edit8.getText().toString())) {
+                    //popup congrats winner with Results and completed mystery
+                    Score=Score+2;
+
+
+
+        }else{
+            tries--;
+            if(tries>0){
+                si=Integer.toString(tries);
+                Toast.makeText(getApplicationContext(),"Wrong Answer, you got "+ si, Toast.LENGTH_LONG).show();
+
+            }else{
+                //popup you have finished the rally, but failed the mystery question here are your result
+
+
+            }
+        }
     }
 }
