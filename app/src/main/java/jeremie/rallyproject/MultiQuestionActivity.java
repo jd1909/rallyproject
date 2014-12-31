@@ -63,12 +63,18 @@ public class MultiQuestionActivity extends ActionBarActivity {
         count = new ScoreCounter();
         count.setCount(intent.getIntExtra("Score",-1));
 
+
+        questions.add(MQ1);
+        questions.add(MQ2);
+        questions.add(MQ2);
+        random = rn.nextInt(questions.size());
+        MQR = questions.get(random);
         float lat = MQR.getLatitude();
         float lng = MQR.getLongitude();
         LatLng location = new LatLng(lat, lng);
 
         // Set up the google map fragment
-        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map2))
                 .getMap();
         Marker luxembourg = map.addMarker(new MarkerOptions().position(LUXEMBOURG)
                 .title("Luxembourg"));

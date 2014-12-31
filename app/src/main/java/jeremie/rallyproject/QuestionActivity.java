@@ -36,12 +36,10 @@ public class QuestionActivity extends ActionBarActivity {
             "Saumur Crystal Club", (float) 49.604201, (float) 6.129737);
     private TextView txtQuestion;
     private EditText edtAnswer;
-    private Button verify;
     private Button answer;
     private ScoreCounter count = new ScoreCounter();
     private List<SimpleQuestions> questions = new ArrayList<>();
     private Marker myLocation;
-    private boolean verified;
 
 
     //   Random rand = new Random();
@@ -167,7 +165,7 @@ popupWindow.showAsDropDown(findViewById(R.id.textView2), 50, -30);
         //enable this when app is to be used for real
         //if (myLocation.getPosition().latitude == SQR.getLatitude()&& myLocation.getPosition().longitude == SQR.getLongitude() )
         //enable for test purposes
-        if (myLocation.getPosition().latitude == myLocation.getPosition().latitude&& myLocation.getPosition().longitude == myLocation.getPosition().longitude )
+        if ((myLocation.getPosition().latitude == myLocation.getPosition().latitude) && (myLocation.getPosition().longitude == myLocation.getPosition().longitude ))
             return true;
 
         return false;
@@ -186,11 +184,8 @@ popupWindow.showAsDropDown(findViewById(R.id.textView2), 50, -30);
                 questions.add(SQ2);
                 random = rn.nextInt(questions.size());
                 SQR = questions.get(random);
-                verify.setEnabled(false);
                 answer.setEnabled(true);
                 txtQuestion.setText(SQR.getQuestion());
-
-
             }
         }
     };
