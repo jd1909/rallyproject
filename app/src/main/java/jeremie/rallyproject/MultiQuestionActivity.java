@@ -15,18 +15,18 @@ import org.w3c.dom.Text;
 public class MultiQuestionActivity extends ActionBarActivity {
 
 
-    MultiQuestions MQ1 = new MultiQuestions(1, "In the rue des marchés des herbes there are many bars. Which bar has the largest gin and tonic menu?", "Go Ten"
+    private MultiQuestions MQ1 = new MultiQuestions(1, "In the rue des marchés des herbes there are many bars. Which bar has the largest gin and tonic menu?", "Go Ten"
                                             , (float)49.611111, (float)6.13242,"the Palais", "Go Ten", "Urban");
-    MultiQuestions MQ2 = new MultiQuestions(2, "Who is the current mayor of Luxembourg City?", "Lydie Polfer"
+    private MultiQuestions MQ2 = new MultiQuestions(2, "Who is the current mayor of Luxembourg City?", "Lydie Polfer"
             , (float)49.610283, (float)6.130363,"Paul Helminger", "Lydie Polfer", "Xavier Bettel");
-    MultiQuestions MQ3 = new MultiQuestions(3,"Who is burried in the cathedral?", "John the Blind of Luxembourg",(float)49.609681 ,(float)6.131582,"Grand-Duc Adolphe",
+    private MultiQuestions MQ3 = new MultiQuestions(3,"Who is burried in the cathedral?", "John the Blind of Luxembourg",(float)49.609681 ,(float)6.131582,"Grand-Duc Adolphe",
                                             "Grand-Duchesse Marie Adelaide","John the Blind of Luxembourg");
-    TextView txtMultiQuestion = (TextView) findViewById(R.id.textView4);
-    Button Answer_A= (Button)findViewById(R.id.button3);
-    Button Answer_B=(Button)findViewById(R.id.button4);
-    Button Answer_C=(Button)findViewById(R.id.button5);
-    int Score;
-    ScoreCounter count;
+    private TextView txtMultiQuestion = (TextView) findViewById(R.id.textView4);
+    private Button Answer_A= (Button)findViewById(R.id.button3);
+    private Button Answer_B=(Button)findViewById(R.id.button4);
+    private Button Answer_C=(Button)findViewById(R.id.button5);
+    private int Score;
+    private ScoreCounter count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

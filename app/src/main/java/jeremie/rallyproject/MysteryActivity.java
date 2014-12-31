@@ -12,18 +12,18 @@ import android.widget.Toast;
 
 
 public class MysteryActivity extends ActionBarActivity {
-    MysteryQuestion mystery = new MysteryQuestion("Take off my skin. I won't cry, but you will! What am I?","An Onion");
-    ScoreCounter count;
-    TextView txtRiddle = (TextView) findViewById(R.id.textView5);
-    EditText Edit1 = (EditText) findViewById(R.id.editText2);
-    EditText Edit2 = (EditText)findViewById(R.id.editText3);
-    EditText Edit3 = (EditText) findViewById(R.id.editText4);
-    EditText Edit4 = (EditText)findViewById(R.id.editText5);
-    EditText Edit5 = (EditText)findViewById(R.id.editText6);
-    EditText Edit6 = (EditText)findViewById(R.id.editText7);
-    EditText Edit7 = (EditText)findViewById(R.id.editText8);
-    EditText Edit8 = (EditText)findViewById(R.id.editText9);
-    int Score;
+    private MysteryQuestion mystery = new MysteryQuestion("Take off my skin. I won't cry, but you will! What am I?","An Onion");
+    private ScoreCounter count;
+    private TextView txtRiddle = (TextView) findViewById(R.id.textView5);
+    private EditText Edit1 = (EditText) findViewById(R.id.editText2);
+    private EditText Edit2 = (EditText)findViewById(R.id.editText3);
+    private EditText Edit3 = (EditText) findViewById(R.id.editText4);
+    private EditText Edit4 = (EditText)findViewById(R.id.editText5);
+    private EditText Edit5 = (EditText)findViewById(R.id.editText6);
+    private EditText Edit6 = (EditText)findViewById(R.id.editText7);
+    private EditText Edit7 = (EditText)findViewById(R.id.editText8);
+    private EditText Edit8 = (EditText)findViewById(R.id.editText9);
+    private int Score;
     private int tries =3;
     private String si;
     @Override

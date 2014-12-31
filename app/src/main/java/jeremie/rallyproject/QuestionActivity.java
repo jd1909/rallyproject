@@ -20,6 +20,8 @@ import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -27,14 +29,16 @@ public class QuestionActivity extends ActionBarActivity {
     private GoogleMap map;
     static final LatLng LUXEMBOURG = new LatLng(49.6117,6.1300);
     static final LatLng CLAIREFONTAINE = new LatLng(49.6098,6.1325);
-    SimpleQuestions SQ1 = new SimpleQuestions(1, " How much does the five course menu cost in the famous restaurant Clairefontaine?",
+    private SimpleQuestions SQ1 = new SimpleQuestions(1, " How much does the five course menu cost in the famous restaurant Clairefontaine?",
             "95 euros", (float)49.60985, (float)6.132561);
-    SimpleQuestions SQ2 = new SimpleQuestions(2, "Its Saturday morning 7 am, you are hungry, where can you go for a burger?",
+    private SimpleQuestions SQ2 = new SimpleQuestions(2, "Its Saturday morning 7 am, you are hungry, where can you go for a burger?",
             "Saumur Crystal Club", (float)49.604201, (float)6.129737);
-    TextView txtQuestion;
-    EditText edtAnswer;
-    ScoreCounter count = new ScoreCounter();
-    int input;
+    private TextView txtQuestion;
+    private EditText edtAnswer;
+    private ScoreCounter count = new ScoreCounter();
+    private int input;
+    private List<SimpleQuestions> questions = new ArrayList<>();
+    private int NumberOfMessages;
     @Override
  //   Random rand = new Random();
  //   int Random = rand.nextInt(1) +1;
@@ -74,7 +78,7 @@ public class QuestionActivity extends ActionBarActivity {
 
         // Zoom in, animating the camera.
         map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
-
+/**
         final Button btnOpenPopup = (Button)findViewById(R.id.button2);
         btnOpenPopup.setOnClickListener(new Button.OnClickListener(){
 
@@ -102,6 +106,7 @@ public class QuestionActivity extends ActionBarActivity {
                 popupWindow.showAsDropDown(findViewById(R.id.textView2), 50, -30);
 
             }});
+ */
     }
     public void Answer(View view){
         if(SQ1.getAnswer().equals(edtAnswer.getText().toString()))
