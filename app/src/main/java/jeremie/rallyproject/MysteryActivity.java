@@ -26,6 +26,7 @@ public class MysteryActivity extends ActionBarActivity {
     private int Score;
     private int tries =3;
     private String si;
+    private String totalScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,7 @@ public class MysteryActivity extends ActionBarActivity {
         Edit3.setText("_");
         Intent intent = getIntent();
         Score = intent.getIntExtra("Score", -1);
+
         count.setCount(Score);
         switch (Score){
             case 3:
@@ -115,23 +117,31 @@ public class MysteryActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void Finish(View view){
+        //correct mystery
         if (mystery.getAnswer().equals(Edit1.getText().toString()+Edit2.getText().toString()+" "
                 +Edit4.getText().toString()+Edit5.getText().toString()+Edit6.getText().toString()
                 +Edit7.getText().toString()+Edit8.getText().toString())) {
-                    //popup congrats winner with Results and completed mystery
-                    Score=Score+2;
 
+                    Score=Score+2;
+                    totalScore=Integer.toString(Score);
+                    Toast.makeText(getApplicationContext(),"You solved the mystery and have a final score of "+ totalScore+".", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this, QuestionActivity.class);
+                    startActivity(intent);
 
 
         }else{
             tries--;
+            //enough tries left then
             if(tries>0){
                 si=Integer.toString(tries);
                 Toast.makeText(getApplicationContext(),"Wrong Answer, you got "+ si +"more tries.", Toast.LENGTH_LONG).show();
-
+            //else finish Rally
             }else{
-                //popup you have finished the rally, but failed the mystery question here are your result
 
+                totalScore=Integer.toString(Score);
+                Toast.makeText(getApplicationContext(),"The rally is finished, you have a total score of "+totalScore+".", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
 
             }
         }
