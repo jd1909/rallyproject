@@ -11,6 +11,10 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 
 public class MultiQuestionActivity extends ActionBarActivity {
 
@@ -27,18 +31,29 @@ public class MultiQuestionActivity extends ActionBarActivity {
     private Button Answer_C=(Button)findViewById(R.id.button5);
     private int Score;
     private ScoreCounter count;
+    private Random rn = new Random();
+    public int random;
+    public MultiQuestions MQR;
+    private List<MultiQuestions> questions = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multi_question);
+        //add multiquestion objects to list.
+        questions.add(MQ1);
+        questions.add(MQ2);
+        questions.add(MQ3);
+        random = rn.nextInt(questions.size()) +1;
+        MQR = questions.get(random);
         Intent intent = getIntent();
         Score= intent.getIntExtra("Score",-1);
         count.setCount(Score);
-        txtMultiQuestion.setText(MQ1.getQuestion());
-        Answer_A.setText(MQ1.getAnswer_A());
-        Answer_B.setText(MQ1.getAnswer_B());
-        Answer_C.setText(MQ2.getAnswer_C());
+        txtMultiQuestion.setText(MQR.getQuestion());
+        Answer_A.setText(MQR.getAnswer_A());
+        Answer_B.setText(MQR.getAnswer_B());
+        Answer_C.setText(MQR.getAnswer_C());
 
     }
 
@@ -65,7 +80,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void Answer_A(View view){
-        if(MQ1.getAnswer().equals(Answer_A.getText().toString())){
+        if(MQR.getAnswer().equals(Answer_A.getText().toString())){
             count.increment();
         }
         Intent intent = new Intent(this, SudokuActivity.class);
@@ -74,7 +89,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
         startActivity(intent);
     }
     public void Answer_B(View view){
-        if(MQ1.getAnswer().equals(Answer_B.getText().toString())){
+        if(MQR.getAnswer().equals(Answer_B.getText().toString())){
             count.increment();
         }
         Intent intent = new Intent(this, SudokuActivity.class);
@@ -83,7 +98,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
         startActivity(intent);
     }
     public void Answer_C(View view){
-        if(MQ1.getAnswer().equals(Answer_C.getText().toString())){
+        if(MQR.getAnswer().equals(Answer_C.getText().toString())){
             count.increment();
         }
         Intent intent = new Intent(this, SudokuActivity.class);

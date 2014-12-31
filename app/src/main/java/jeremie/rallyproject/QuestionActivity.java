@@ -36,30 +36,34 @@ public class QuestionActivity extends ActionBarActivity {
     private TextView txtQuestion;
     private EditText edtAnswer;
     private ScoreCounter count = new ScoreCounter();
-    private int input;
     private List<SimpleQuestions> questions = new ArrayList<>();
-    private int NumberOfMessages;
-    @Override
+
  //   Random rand = new Random();
  //   int Random = rand.nextInt(1) +1;
+    private Random rn = new Random();
+    public int random;
+    public SimpleQuestions SQR;
 
-
+    @Override
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        //add simplequestion objects to list.
+        questions.add(SQ1);
+        questions.add(SQ2);
+        random = rn.nextInt(questions.size()) +1;
+        SQR = questions.get(random);
 
 
 
-
-
-        float lat = SQ1.getLatitude();
-        float lng = SQ1.getLongitude();
+        float lat = SQR.getLatitude();
+        float lng = SQR.getLongitude();
 
         txtQuestion = (TextView) findViewById(R.id.textView3);
         edtAnswer = (EditText) findViewById(R.id.editText);
-        txtQuestion.setText(SQ1.getQuestion());
+        txtQuestion.setText(SQR.getQuestion());
 
         LatLng location = new LatLng(lat,lng);
 
@@ -109,7 +113,7 @@ public class QuestionActivity extends ActionBarActivity {
  */
     }
     public void Answer(View view){
-        if(SQ1.getAnswer().equals(edtAnswer.getText().toString()))
+        if(SQR.getAnswer().equals(edtAnswer.getText().toString()))
         {
                 count.increment();
 

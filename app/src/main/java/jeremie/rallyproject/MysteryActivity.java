@@ -117,7 +117,7 @@ public class MysteryActivity extends ActionBarActivity {
             tries--;
             if(tries>0){
                 si=Integer.toString(tries);
-                Toast.makeText(getApplicationContext(),"Wrong Answer, you got "+ si, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Wrong Answer, you got "+ si +"more tries.", Toast.LENGTH_LONG).show();
 
             }else{
                 //popup you have finished the rally, but failed the mystery question here are your result
