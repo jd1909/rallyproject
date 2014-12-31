@@ -164,7 +164,10 @@ popupWindow.showAsDropDown(findViewById(R.id.textView2), 50, -30);
 
     public boolean verifyLocation() {
         LatLng quest = new LatLng(SQR.getLatitude(), SQR.getLongitude());
-        if (myLocation.getPosition().latitude == SQR.getLatitude()&& myLocation.getPosition().longitude == SQR.getLongitude() )
+        //enable this when app is to be used for real
+        //if (myLocation.getPosition().latitude == SQR.getLatitude()&& myLocation.getPosition().longitude == SQR.getLongitude() )
+        //enable for test purposes
+        if (myLocation.getPosition().latitude == myLocation.getPosition().latitude&& myLocation.getPosition().longitude == myLocation.getPosition().longitude )
             return true;
 
         return false;
