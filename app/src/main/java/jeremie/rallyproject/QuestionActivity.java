@@ -117,8 +117,6 @@ public class QuestionActivity extends ActionBarActivity {
         {
                 count.increment();
 
-        }else{
-                count.decrease();
         }
         Intent intent = new Intent(this, MultiQuestionActivity.class);
         int score = count.totalScore();
