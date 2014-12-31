@@ -9,5 +9,7 @@
     <string name="title_activity_question">QuestionActivity</string>
     <string name="questions">Answer the question to score points!</string>
     <string name="map_description">map</string>
+    <string name="title_activity_sudoku">SudokuActivity</string>
+    <string name="sudoku_description">Solve the sudoku!</string>
 
 </resources>
