@@ -1,6 +1,7 @@
 package jeremie.rallyproject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,12 +22,17 @@ public class SudokuActivity extends Activity {
     Button[] buttons;
     boolean firstClick = true;
     int[] startingNumbers;
+    ScoreCounter count = new ScoreCounter();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_sudoku);
+
+        Intent intent = getIntent();
+        count = new ScoreCounter();
+        count.setCount(intent.getIntExtra("Score",-1));
 
         buttons = new Button[7];
         buttons[0] = (Button) findViewById(R.id.button1);
@@ -114,6 +120,7 @@ public class SudokuActivity extends Activity {
                 if(gridModel.isFinished()){
                     Toast.makeText(getApplicationContext(),
                             "Congratulations, you won!", Toast.LENGTH_SHORT).show();
+                    mystery();
                 }
 
             }
@@ -158,6 +165,15 @@ public class SudokuActivity extends Activity {
                         "Congratulations, you won!", Toast.LENGTH_SHORT).show();
             }
         }
+
+    }
+
+    private void mystery(){
+        count.increment();
+        Intent intent = new Intent(this, MysteryActivity.class);
+        int score = count.totalScore();
+        intent.putExtra("Score",score);
+        startActivity(intent);
 
     }
 

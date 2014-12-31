@@ -29,7 +29,6 @@ import java.util.Random;
 public class QuestionActivity extends ActionBarActivity {
     private GoogleMap map;
     static final LatLng LUXEMBOURG = new LatLng(49.6117, 6.1300);
-    static final LatLng CLAIREFONTAINE = new LatLng(49.6098, 6.1325);
     private SimpleQuestions SQ1 = new SimpleQuestions(1, " How much does the five course menu cost in the famous restaurant Clairefontaine?",
             "95 euros", (float) 49.60985, (float) 6.132561);
     private SimpleQuestions SQ2 = new SimpleQuestions(2, "Its Saturday morning 7 am, you are hungry, where can you go for a burger?",
@@ -80,17 +79,15 @@ public class QuestionActivity extends ActionBarActivity {
         // Set up the google map fragment
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
                 .getMap();
-        Marker luxembourg = map.addMarker(new MarkerOptions().position(LUXEMBOURG)
-                .title("Luxembourg"));
-        Marker claire = map.addMarker(new MarkerOptions()
+        Marker quest = map.addMarker(new MarkerOptions()
                 .position(location)
                 .title("Quest"));
 
-        // Move the camera instantly to luxembourg with a zoom of 15.
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(LUXEMBOURG, 15));
+        // Move the camera instantly to the quest location with a zoom of 15.
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
 
         // Zoom in, animating the camera.
-        map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
+        //map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
         this.map.setMyLocationEnabled(true);
         this.myLocation= map.addMarker(new MarkerOptions().position(new LatLng(49.6117, 6.1300)).title("You are here"));
         this.map.setOnMyLocationChangeListener(this.myLocationChangeListener);

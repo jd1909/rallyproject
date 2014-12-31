@@ -14,5 +14,6 @@
     <string name="title_activity_main_activity2">MainActivity2</string>
     <string name="title_activity_multi_question">MultiQuestionActivity</string>
     <string name="title_activity_mystery">Mystery</string>
+    <string name="title_activity_sudoku_map">SudokuMapActivity</string>
 
 </resources>

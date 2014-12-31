@@ -120,7 +120,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
         if(MQR.getAnswer().equals(Answer_A.getText().toString())){
             count.increment();
         }
-        Intent intent = new Intent(this, SudokuActivity.class);
+        Intent intent = new Intent(this, SudokuMapActivity.class);
         int score = count.totalScore();
         intent.putExtra("Score",score);
         startActivity(intent);
@@ -129,7 +129,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
         if(MQR.getAnswer().equals(Answer_B.getText().toString())){
             count.increment();
         }
-        Intent intent = new Intent(this, SudokuActivity.class);
+        Intent intent = new Intent(this, SudokuMapActivity.class);
         int score = count.totalScore();
         intent.putExtra("Score",score);
         startActivity(intent);
@@ -138,7 +138,7 @@ public class MultiQuestionActivity extends ActionBarActivity {
         if(MQR.getAnswer().equals(Answer_C.getText().toString())){
             count.increment();
         }
-        Intent intent = new Intent(this, SudokuActivity.class);
+        Intent intent = new Intent(this, SudokuMapActivity.class);
         int score = count.totalScore();
         intent.putExtra("Score",score);
         startActivity(intent);

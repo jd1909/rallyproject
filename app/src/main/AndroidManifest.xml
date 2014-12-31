@@ -64,6 +64,10 @@
             android:name=".MysteryActivity"
             android:label="@string/title_activity_mystery" >
         </activity>
+        <activity
+            android:name=".SudokuMapActivity"
+            android:label="@string/title_activity_sudoku_map" >
+        </activity>
     </application>
 
 </manifest>
