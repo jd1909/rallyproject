@@ -73,7 +73,7 @@ public class SudokuMapActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void proceed(View view) {
+    public void proceed(View view) {
         Intent intent = new Intent(this,SudokuActivity.class);
         int score = count.totalScore();
         intent.putExtra("Score", score);

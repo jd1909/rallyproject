@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MysteryActivity extends ActionBarActivity {
     private MysteryQuestion mystery = new MysteryQuestion("Take off my skin. I won't cry, but you will! What am I?","An Onion");
-    private ScoreCounter count;
+    private ScoreCounter count = new ScoreCounter();
     private TextView txtRiddle;
     private EditText Edit1;
     private EditText Edit2;
@@ -124,8 +124,10 @@ public class MysteryActivity extends ActionBarActivity {
 
                     Score=Score+2;
                     totalScore=Integer.toString(Score);
-                    Toast.makeText(getApplicationContext(),"You solved the mystery and have a final score of "+ totalScore+".", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(this, QuestionActivity.class);
+                    for(int i=0;i<3;i++){
+                        Toast.makeText(getApplicationContext(),"You solved the mystery and have a final score of "+ totalScore+".", Toast.LENGTH_LONG).show();
+                    }
+                    Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
 
 
@@ -134,12 +136,14 @@ public class MysteryActivity extends ActionBarActivity {
             //enough tries left then
             if(tries>0){
                 si=Integer.toString(tries);
-                Toast.makeText(getApplicationContext(),"Wrong Answer, you got "+ si +"more tries.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Wrong Answer, you got "+ si +" more tries.", Toast.LENGTH_LONG).show();
             //else finish Rally
             }else{
 
                 totalScore=Integer.toString(Score);
-                Toast.makeText(getApplicationContext(),"The rally is finished, you have a total score of "+totalScore+".", Toast.LENGTH_LONG).show();
+                for(int i=0;i<3;i++) {
+                    Toast.makeText(getApplicationContext(), "The rally is finished, you have a total score of " + totalScore + ".", Toast.LENGTH_LONG).show();
+                }
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
 

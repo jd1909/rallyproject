@@ -163,6 +163,7 @@ public class SudokuActivity extends Activity {
             if(gridModel.isFinished()){
                 Toast.makeText(getApplicationContext(),
                         "Congratulations, you won!", Toast.LENGTH_SHORT).show();
+                mystery();
             }
         }
 
