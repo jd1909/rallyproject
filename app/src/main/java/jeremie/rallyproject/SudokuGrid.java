@@ -21,7 +21,7 @@ public class SudokuGrid {
 
     public boolean isNotInRow(int d, int r){
         for(int i = 0; i < 6; i++){
-            if(grid[r][i].getDigit() == d)
+            if(grid[i][r].getDigit() == d)
                 return false;
         }
         return true;
@@ -29,7 +29,7 @@ public class SudokuGrid {
 
     public boolean isNotInColumn(int d, int c){
         for(int i = 0; i < 6; i++){
-            if(grid[i][c].getDigit() == d)
+            if(grid[c][i].getDigit() == d)
                 return false;
         }
         return true;
@@ -39,7 +39,7 @@ public class SudokuGrid {
         for(int i = 0; i < 3; i++){
             int r = coord.lat*3 + i;
             for(int j = 0; j < 2; j++){
-                if(grid[r][coord.lng*2+j].getDigit() == d)
+                if(grid[coord.lng*2+j][r].getDigit() == d)
                     return false;
             }
         }
@@ -54,8 +54,8 @@ public class SudokuGrid {
     public int[] getValidMoves(int r, int c){
         int[] validMoves = new int[6];
         SquareCoordinates coord = getSquareCoordinates(r,c);
-        for(int i = 1; i<=6; i++){
-            if(isNotInRow(i,r) && isNotInColumn(i,c) && isNotInSquare(i, coord))
+        for(int i = 0; i<6; i++){
+            if(isNotInRow(i+1,r) && isNotInColumn(i+1,c) && isNotInSquare(i+1, coord))
                 validMoves[i] = 1;
             else
                 validMoves[i] = 0;

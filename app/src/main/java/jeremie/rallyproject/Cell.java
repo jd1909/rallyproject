@@ -26,9 +26,9 @@ public class Cell {
         return false;
     }
 
-    public char printDigit(){
+    public String printDigit(){
         if(digit == 0)
-            return ' ';
-        return (char) ('0'+ digit);
+            return "_";
+        return "" + (char) ('0'+ digit);
     }
 }
