@@ -29,8 +29,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Question?"
         android:id="@+id/textView3"
-        android:layout_above="@+id/editText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -59,6 +60,7 @@
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/editText"
-        android:layout_toEndOf="@+id/editText" />
+        android:layout_toEndOf="@+id/editText"
+        android:onClick="Answer" />
 
 </RelativeLayout>
