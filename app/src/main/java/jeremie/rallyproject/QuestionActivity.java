@@ -11,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.database.Cursor;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
@@ -24,45 +26,34 @@ public class QuestionActivity extends ActionBarActivity {
     private GoogleMap map;
     static final LatLng LUXEMBOURG = new LatLng(49.6117,6.1300);
     static final LatLng CLAIREFONTAINE = new LatLng(49.6098,6.1325);
-
+    SimpleQuestions SQ1 = new SimpleQuestions(1, " How much does the five course menu cost in the famous restaurant Clairefontaine?",
+            "95 euros", (float)49.60985, (float)6.132561);
+    SimpleQuestions SQ2 = new SimpleQuestions(2, "Its Saturday morning 7 am, you are hungry, where can you go for a burger?",
+            "Saumur Crystal Club", (float)49.604201, (float)6.129737);
+    TextView txtQuestion = (TextView) findViewById(R.id.textView3);
+    EditText edtAnswer = (EditText) findViewById(R.id.editText);
+    ScoreCounter count = new ScoreCounter();
     @Override
+
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        // Set up the database
-        DatabaseOpenHelper myDbHelper = new DatabaseOpenHelper(this);
-        try {
-            // check if database exists in app path, if not copy it from assets
-            myDbHelper.create();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
-        myDbHelper.close();
-
-        try {
-            // open the database
-            myDbHelper.open();
-            myDbHelper.getWritableDatabase();
-        } catch (SQLException sqle) {
-            throw sqle;
-        }
 
 
-        Cursor questionCursor = myDbHelper.getSimpleQuestion(1);
-        String questionString = questionCursor.getString(1);
-        System.out.printf(questionString);
-        String answer = questionCursor.getString(2);
-        System.out.printf(answer);
-        float lat = questionCursor.getFloat(3);
-        float lng = questionCursor.getFloat(4);
+
+
+
+        float lat = SQ1.getLatitude();
+        float lng = SQ1.getLongitude();
+
+
+        txtQuestion.setText(SQ1.getQuestion());
+
         LatLng location = new LatLng(lat,lng);
 
-        /*Cursor c = myDbHelper.getUser(1);
-        Toast.makeText(this,
-                "id: " + c.getInt(o) + "\n name: " + c.getString(1)
-                        + "\n initials: " + c.getString(2) + "\n address: "
-                        + c.getString(3), Toast.LENGTH_LONG).show();
-        c.close();*/
 
         // Set up the google map fragment
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
@@ -105,6 +96,17 @@ public class QuestionActivity extends ActionBarActivity {
                 popupWindow.showAsDropDown(findViewById(R.id.textView2), 50, -30);
 
             }});
+    }
+    public void Answer(View view){
+        if(SQ1.getAnswer().equals(edtAnswer.getText().toString()))
+        {
+                count.increment();
+
+        }else{
+                count.decrease();
+        }
+        Intent intent = new Intent(this, MultiQuestionActivity.class);
+        startActivity(intent);
     }
 
 

@@ -47,8 +47,17 @@
             android:value="AIzaSyBJZV23d9t2s4jVtYIHZhMzu0-_fJs4Z2I" />
 
         <activity
+<<<<<<< HEAD
             android:name=".SudokuActivity"
             android:label="@string/title_activity_sudoku" >
+=======
+            android:name=".MainActivity2"
+            android:label="@string/title_activity_main_activity2" >
+        </activity>
+        <activity
+            android:name=".MultiQuestionActivity"
+            android:label="@string/title_activity_multi_question" >
+>>>>>>> origin/master
         </activity>
     </application>
 
